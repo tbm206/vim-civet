@@ -100,7 +100,7 @@ syn match civetFloat /\%(\i\|\$\)\@<![-+]\?\d*\.\@<!\.\d\+\%([eE][+-]\?\d\+\)\?/
 hi def link civetFloat Float
 
 " An error for reserved keywords, taken from the RESERVED array:
-syn match civetReservedError /\<\%(case\|function\|var\|void\|with\|const\|let\|enum\|native\|implements\|interface\|package\|private\|protected\|public\|static\)\>/display
+syn match civetReservedError /\<\%(case\|function\|var\|void\|with\|const\|let\|enum\|native\|implements\|interface\|package\|private\|protected\|public\|static\)\>/ display
 hi def link civetReservedError Error
 
 syn keyword civetTodo TODO FIXME XXX contained
