@@ -41,6 +41,10 @@ syn match civetExtendedOp /\%(\S\s*\)\@<=[+\-*/%&|\^=!<>?.]\{-1,}\|[-=]>\|--\|++
 syn match civetExtendedOp /\<\%(and\|or\)=/ display
 hi def link civetExtendedOp civetOperator
 
+" Pipe Operator
+syn match civetPipeOp /\<\%(|>\)=/ display
+hi def link civetPipeOp civetOperator
+
 " This is separate from `civetExtendedOp` to help differentiate commas from dots.
 syn match civetSpecialOp /[,;]/ display
 hi def link civetSpecialOp SpecialChar
