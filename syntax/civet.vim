@@ -42,7 +42,7 @@ syntax match civetExtendedOp /\<\%(and\|or\)=/ display
 highlight def link civetExtendedOp civetOperator
 
 " Pipe Operator
-syntax match civetPipeOp /\<\%(|>\)=/ display
+syntax match civetPipeOp /\<\%(|>\)\>/ display
 highlight def link civetPipeOp civetOperator
 
 " This is separate from `civetExtendedOp` to help differentiate commas from dots.
@@ -128,7 +128,7 @@ highlight def link civetEscape SpecialChar
 
 " A regex -- must not follow a parenthesis, number, or identifier, and must not
 " be followed by a number
-syntax region civetRegex start=#\%(\%()\|\%(\i\|\$\)\@<!\d\)\s*\|\i\)\@<!/=\@!\s\@!# end=#/[gimy]\{,4}\d\@!# oneline contains=@civetBasicString,civetRegexCharSet
+syntax region civetRegex start=#\%(\%()\|\%(\i\|\$\)\@<!\d\)\s*\|\i\|\.\)\@<!/=\@!\s\@!# end=#/[gimy]\{,4}\d\@!# oneline contains=@civetBasicString,civetRegexCharSet
 syntax region civetRegexCharSet start=/\[/ end=/]/ contained contains=@civetBasicString
 highlight def link civetRegex String
 highlight def link civetRegexCharSet civetRegex
