@@ -110,11 +110,6 @@ highlight def link civetReservedError Error
 syntax keyword civetTodo TODO FIXME XXX contained
 highlight def link civetTodo Todo
 
-syntax region civetComment        start=+//+ end=/$/ contains=civetTodo,@Spell extend keepend
-syntax region civetComment        start=+/\*+  end=+\*/+ contains=civetTodo,@Spell fold extend keepend
-syntax region civetEnvComment     start=/\%^#!/ end=/$/ display
-highlight def link civetComment Comment
-
 " A normal object assignment
 syntax match civetObjAssign /@\?\%(\I\|\$\)\%(\i\|\$\)*\s*\ze::\@!/ contains=@civetIdentifier display
 highlight def link civetObjAssign Identifier
@@ -132,6 +127,10 @@ syntax region civetRegex start=#\%(\%()\|\%(\i\|\$\)\@<!\d\)\s*\|\i\|\.\)\@<!/=\
 syntax region civetRegexCharSet start=/\[/ end=/]/ contained contains=@civetBasicString
 highlight def link civetRegex String
 highlight def link civetRegexCharSet civetRegex
+
+syntax region civetComment start=+//+ end=/$/ contains=civetTodo,@Spell extend keepend
+syntax region civetComment start=+/\*+ end=+\*/+ contains=civetTodo,@Spell fold extend keepend
+highlight def link civetComment Comment
 
 " An error for trailing whitespace, as long as the line isn't just whitespace
 syntax match civetSpaceError /\S\@<=\s\+$/ display
@@ -169,7 +168,7 @@ syntax cluster civetAll contains=civetStatement,civetRepeat,civetConditional,
 \ civetGlobal,civetSpecialVar,civetSpecialIdent,
 \ civetObject,civetConstant,civetString,
 \ civetNumber,civetFloat,civetReservedError,
-\ civetObjAssign,civetComment,
+\ civetObjAssign,civetComment,civetInterpDelim,civetInterpString,
 \ civetRegex,civetTemplateString, civetTaggedTemplate,
 \ civetSpaceError,
 \ civetSemicolonError,civetDotAccess,
